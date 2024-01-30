@@ -26,7 +26,7 @@
                         <th>ISBN</th>
                         <th>Category</th>
                         <th>Available Copies</th>
-                        <th></th>
+                        @* <th></th> *@
                     </tr>
                 </thead>
                 <tbody>
@@ -39,9 +39,9 @@
                             <td>@item.Isbn</td>
                             <td>@item.Category</td>
                             <td>@($"{item.CopiesInUse}/{item.TotalCopies}")</td>
-                            <td>
+                            @* <td>
                                 <button asp-page-handler="Delete" asp-route-id="@item.BookId" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
+                            </td> *@
                         </tr>
                     }
                 </tbody>

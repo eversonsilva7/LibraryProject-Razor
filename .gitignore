@@ -5,3 +5,7 @@
 /.vs
 /bin/Debug/net7.0
 /obj
+/bin/Release/net7.0
+/LibraryProject_Razor.csproj.user
+/Properties/PublishProfiles
+/Properties/ServiceDependencies/LibraryProjectRazor - Web Deploy/profile.arm.json
