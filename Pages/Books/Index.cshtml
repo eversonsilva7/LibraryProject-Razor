@@ -10,38 +10,42 @@
         <h2 class="text-info">Books</h2>
     </div>
     <div class="col-3">
-        <a asp-page="Create" class="btn btn-info form-control text-white">Create New Book</a> 
     </div>
 </div>
 
 <div class="col-12 p-3 mt-3">
     <form method="post">
-        @if (Model.Books.Count() > 0) {
-        <table class="table table-striped border">
-            <tr class="table-secondary">
-                <th>
-                    <label>Title</label>
-                </th>
-                <th>
-                    <label>Author</label>
-                </th>
-                <th>
-                    <label>Category</label>
-                </th>
-                <th></th>
-            </tr>
-            @foreach (var item in Model.Books)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(m => item.Title)</td>
-                    <td>@Html.DisplayFor(m => item.FirstName) @Html.DisplayFor(m => item.LastName)</td>
-                    <td>@Html.DisplayFor(m => item.Category)</td>
-                    <td>
-                        <button asp-page-handler="Delete" asp-route-id="@item.BookId" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            }
-        </table>
+        @if (Model.Books.Count() > 0)
+        {
+            <table class="table table-striped border" id="myTable">
+                <thead>
+                    <tr class="table-secondary">
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>Type</th>
+                        <th>ISBN</th>
+                        <th>Category</th>
+                        <th>Available Copies</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Books)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@($"{item.FirstName} {item.LastName}")</td>
+                            <td>@item.Type</td>
+                            <td>@item.Isbn</td>
+                            <td>@item.Category</td>
+                            <td>@($"{item.CopiesInUse}/{item.TotalCopies}")</td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.BookId" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         }
         else
         {
