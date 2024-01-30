@@ -1,4 +1,4 @@
-# .NET 7 with Razor
+# Book store .NET 7 with Razor
 Simple .NET 7 project using Razor pages with Entity framework.
 
 ## Project Definition
